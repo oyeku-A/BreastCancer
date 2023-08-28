@@ -28,10 +28,11 @@ def prediction_page():
     clump_thickness, uniformity_of_cell_size, uniformity_of_cell_shape,
     marginal_adhesion, single_epithelial_cell_size, bare_nuclei,
     bland_chromatin, normal_nucleoli, mitoses
-  ]])
+  ]], dtype='int64')
 
   prediction = model.predict(arr_inputs)
   return render_template('prediction.html', pred_=prediction)
-  
+
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
