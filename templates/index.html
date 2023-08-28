@@ -18,42 +18,42 @@
               </div>
             <div class="row justify-content-center my-5">
                 <div class="col-lg-9 col-md-9 col-sm-9">
-                  <form action="" class="row g-3">
+                  <form method="post" action="{{url_for('prediction_page')}}" class="row g-3" >
                     <div class="col-md-4 col-sm-6 col-xs-1 form-floating">
-                      <input type="email" id="email" class="form-control">
-                      <label for="email" class="form-label">clump thickness</label>
+                      <input type="number" name="clump thickness" class="form-control">
+                      <label for="" class="form-label">clump thickness</label>
                     </div>   
                     <div class="col-md-4 col-sm-6 form-floating ">
-                      <input type="name" id="name" class="form-control">
-                      <label for="name" class="form-label">uniformity of cell size</label>
+                      <input type="number" name="uniformity of cell size" class="form-control">
+                      <label for="" class="form-label">uniformity of cell size</label>
                     </div>
                     <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="name" id="name" class="form-control">
-                        <label for="name" class="form-label">uniformity of cell shape</label>
+                        <input type="number" name="uniformity of cell shape" class="form-control">
+                        <label for="" class="form-label">uniformity of cell shape</label>
                       </div>
                       <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="name" id="name" class="form-control">
-                        <label for="name" class="form-label">marginal adhesion </label>
+                        <input type="number" name="marginal adhesion" class="form-control">
+                        <label for="" class="form-label">marginal adhesion</label>
                       </div>
                       <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="name" id="name" class="form-control">
-                        <label for="name" class="form-label">single epithelial cell size</label>
+                        <input type="number" name="single epithelial cell size" class="form-control">
+                        <label for="" class="form-label">single epithelial cell size</label>
                       </div>
                       <div class="col-md-4 col-sm-6 form-floating">
-                        <input type="name" id="name"  class="form-control">
-                        <label for="name" class="form-label">bland chromatin</label>
-                      </div>
-                      <div class="col-md-4  col-sm-6 form-floating ">
-                        <input type="name" id="name" class="form-control">
-                        <label for="name" class="form-label">normal nucleoli</label>               
-                      </div>
-                      <div class="col-md-4 col-sm-6 form-floating">
-                        <input type="name" id="name"  class="form-control">
+                        <input type="number" name="bare nuclei"  class="form-control">
                         <label for="name" class="form-label">bare nuclei</label>
                       </div>
+                      <div class="col-md-4 col-sm-6 form-floating">
+                        <input type="number" name="bland chromatin"  class="form-control">
+                        <label for="" class="form-label">bland chromatin</label>
+                      </div>
                       <div class="col-md-4  col-sm-6 form-floating ">
-                        <input type="name" id="name" class="form-control">
-                        <label for="name" class="form-label">mitoses</label>               
+                        <input type="number" name="normal nucleoli" class="form-control">
+                        <label for="" class="form-label">normal nucleoli</label>               
+                      </div>
+                      <div class="col-md-4  col-sm-6 form-floating ">
+                        <input type="number" name="mitoses" class="form-control">
+                        <label for="" class="form-label">mitoses</label>               
                       </div>
                       <div class="text-center mt-5">
                         <button type="submit" class="btn btn-primary">Submit</button>
