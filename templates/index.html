@@ -11,61 +11,78 @@
         ...
     </header>
     <main>
-        <div class="container border my-5 rounded-5 border-primary-subtle col-lg-8 col-sm-10 col-md-10">
-            <div class="text-center my-5">
-                <h2>Breast Cancer Check</h2>
-                <p class="lead">Click here to get help</p>
-              </div>
-            <div class="row justify-content-center my-5">
-                <div class="col-lg-9 col-md-9 col-sm-9">
-                  <form method="post" action="{{url_for('prediction_page')}}" class="row g-3" >
-                    <div class="col-md-4 col-sm-6 col-xs-1 form-floating">
-                      <input type="number" name="clump thickness" class="form-control">
-                      <label for="" class="form-label">clump thickness</label>
-                    </div>   
-                    <div class="col-md-4 col-sm-6 form-floating ">
-                      <input type="number" name="uniformity of cell size" class="form-control">
-                      <label for="" class="form-label">uniformity of cell size</label>
-                    </div>
-                    <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="number" name="uniformity of cell shape" class="form-control">
-                        <label for="" class="form-label">uniformity of cell shape</label>
-                      </div>
-                      <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="number" name="marginal adhesion" class="form-control">
-                        <label for="" class="form-label">marginal adhesion</label>
-                      </div>
-                      <div class="col-md-4 col-sm-6 form-floating ">
-                        <input type="number" name="single epithelial cell size" class="form-control">
-                        <label for="" class="form-label">single epithelial cell size</label>
-                      </div>
-                      <div class="col-md-4 col-sm-6 form-floating">
-                        <input type="number" name="bare nuclei"  class="form-control">
-                        <label for="name" class="form-label">bare nuclei</label>
-                      </div>
-                      <div class="col-md-4 col-sm-6 form-floating">
-                        <input type="number" name="bland chromatin"  class="form-control">
-                        <label for="" class="form-label">bland chromatin</label>
-                      </div>
-                      <div class="col-md-4  col-sm-6 form-floating ">
-                        <input type="number" name="normal nucleoli" class="form-control">
-                        <label for="" class="form-label">normal nucleoli</label>               
-                      </div>
-                      <div class="col-md-4  col-sm-6 form-floating ">
-                        <input type="number" name="mitoses" class="form-control">
-                        <label for="" class="form-label">mitoses</label>               
-                      </div>
-                      <div class="text-center mt-5">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </div>
-                  </form>
-                </div>
-              </div>
+      <div class="container border my-5 rounded-5 border-primary-subtle col-lg-8 col-sm-10 col-md-10">
+          <div class="text-center my-5">
+            <h2>Breast Cancer Check</h2>
+            <p class="lead">Click here to get help</p>
+          </div>
+          <div class="row justify-content-center my-5">
+              <div class="col-lg-9 col-md-9 col-sm-9">
+                <form method="post" action="/" class="row g-3" >
+                  <div class="col-md-4 col-sm-6 col-xs-1 form-floating">
+                    <input type="number" name="clump thickness" class="form-control" value="{{form_data.get('clump thickness', '')}}" required>
+                    <label for="" class="form-label">clump thickness</label>
+                  </div>   
+                  <div class="col-md-4 col-sm-6 form-floating ">
+                    <input type="number" name="uniformity of cell size" class="form-control" value="{{form_data.get('uniformity of cell size', '')}}" required>
+                    <label for="" class="form-label">uniformity of cell size</label>
+                  </div>
+                  <div class="col-md-4 col-sm-6 form-floating ">
+                    <input type="number" name="uniformity of cell shape" class="form-control" value="{{form_data.get('uniformity of cell shape', '')}}" required>
+                    <label for="" class="form-label">uniformity of cell shape</label>
+                  </div>
+                  <div class="col-md-4 col-sm-6 form-floating ">
+                    <input type="number" name="marginal adhesion" class="form-control" value="{{form_data.get('marginal adhesion', '')}}" required>
+                    <label for="" class="form-label">marginal adhesion</label>
+                  </div>
+                  <div class="col-md-4 col-sm-6 form-floating ">
+                    <input type="number" name="single epithelial cell size" class="form-control" value="{{form_data.get('single epithelial cell size', '')}}" required>
+                    <label for="" class="form-label">single epithelial cell size</label>
+                  </div>
+                  <div class="col-md-4 col-sm-6 form-floating">
+                    <input type="number" name="bare nuclei"  class="form-control" value="{{form_data.get('bare nuclei', '')}}" required>
+                    <label for="name" class="form-label">bare nuclei</label>
+                  </div>
+                  <div class="col-md-4 col-sm-6 form-floating">
+                    <input type="number" name="bland chromatin"  class="form-control" value="{{form_data.get('bland chromatin', '')}}" required>
+                    <label for="" class="form-label">bland chromatin</label>
+                  </div>
+                  <div class="col-md-4  col-sm-6 form-floating ">
+                    <input type="number" name="normal nucleoli" class="form-control" value="{{form_data.get('normal nucleoli', '')}}" required>
+                    <label for="" class="form-label">normal nucleoli</label>               
+                  </div>
+                  <div class="col-md-4  col-sm-6 form-floating ">
+                    <input type="number" name="mitoses" class="form-control" value="{{form_data.get('mitoses', '')}}" required>
+                    <label for="" class="form-label">mitoses</label>               
+                  </div>
+                    {% if pred_%}
+                      <p id="prediction-result">Prediction: {{ pred_[0] }}</p>
+                    {% endif %}
+                  </div>
+                  <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                    <button type="button" class="btn btn-primary" id="refresh-button" onclick="refreshPage()">Reload</button>
+                  </div>
+                </form>
+            </div>
         </div>
     </main>
     <footer>
-        ...
+      ...
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function refreshPage() {
+      var refreshButton = document.getElementById("refresh-button");
+      refreshButton.style.transform = "rotate(360deg)";
+      setTimeout(function() {
+          // Clear form input fields
+          document.querySelectorAll('input[type=number]').forEach(function(input) {
+              input.value = '';
+          });
+          // Clear prediction result
+          document.getElementById('prediction-result').textContent = '';
+      }, 1000);
+  }
+  </script>
 </body>
 </html>
