@@ -32,7 +32,7 @@ def home_page():
     prediction = model.predict(arr_inputs)
     return render_template('index.html', pred_=prediction, form_data=form_data)
   else:
-    return render_template('index.html', form_data=form_data)
+    return render_template('index.html', pred_=None, form_data=form_data)
 
 
 if __name__ == "__main__":

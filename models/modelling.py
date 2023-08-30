@@ -2,8 +2,6 @@ import pandas as pd
 from pathlib import Path
 import joblib
 
-data_path = Path('/models/cleaned.csv')
-print(data_path)
 df = pd.read_csv('cleaned.csv')
 
 X = df.iloc[:, 1:-1].values

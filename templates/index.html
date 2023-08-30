@@ -55,8 +55,12 @@
                     <input type="number" name="mitoses" class="form-control" value="{{form_data.get('mitoses', '')}}" required>
                     <label for="" class="form-label">mitoses</label>               
                   </div>
-                    {% if pred_%}
-                      <p id="prediction-result">Prediction: {{ pred_[0] }}</p>
+                    {% if pred_ in [0, 1] %}
+                        {% if pred_[0] == 0 %}
+                            <p id="prediction-result">Prediction: Malignant</p>
+                        {% else %}
+                            <p id="prediction-result">Prediction: Benign</p>
+                        {% endif %}
                     {% endif %}
                   </div>
                   <div class="text-center mt-5">
