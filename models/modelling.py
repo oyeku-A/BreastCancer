@@ -1,9 +1,8 @@
 import pandas as pd
-from pathlib import Path
 import joblib
 
-df = pd.read_csv('cleaned.csv')
-
+df = pd.read_csv('Data.csv')
+df['Class'] = df['Class'].map(lambda x: 1 if x == 2 else 0)
 X = df.iloc[:, 1:-1].values
 y = df.iloc[:, -1].values
 

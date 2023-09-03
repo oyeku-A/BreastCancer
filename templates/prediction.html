@@ -7,7 +7,15 @@
   <title>Result</title>
 </head>
 <body>
-  {{pred_}}
-  
+  </div>
+    {% if pred_[0] == 0 %}
+      <p>Prediction: Malignant</p>
+    {% else %}
+      <p>Prediction: Benign</p>
+    {% endif %}
+  </div>
+  <div>
+    <a href="/">return</a>
+  </div>
 </body>
 </html>
