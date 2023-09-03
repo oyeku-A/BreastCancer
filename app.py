@@ -11,28 +11,20 @@ app = Flask(__name__)
 def home_page():
   form_data = {}
   if request.method == 'POST':
-    clump_thickness = request.form['clump thickness']
-    uniformity_of_cell_size = request.form['uniformity of cell size']
-    uniformity_of_cell_shape = request.form['uniformity of cell shape']
-    marginal_adhesion = request.form['marginal adhesion']
-    single_epithelial_cell_size = request.form['single epithelial cell size']
-    bare_nuclei = request.form['bare nuclei']
-    bland_chromatin = request.form['bland chromatin']
-    normal_nucleoli = request.form['normal nucleoli']
-    mitoses = request.form['mitoses']
     form_data = request.form.to_dict()
-
     arr_inputs = np.array([[
-      clump_thickness, uniformity_of_cell_size, uniformity_of_cell_shape,
-      marginal_adhesion, single_epithelial_cell_size, bare_nuclei,
-      bland_chromatin, normal_nucleoli, mitoses
+      form_data['clump thickness'], form_data['uniformity of cell size'],
+      form_data['uniformity of cell shape'], form_data['marginal adhesion'],
+      form_data['single epithelial cell size'], form_data['bare nuclei'],
+      form_data['bland chromatin'], form_data['normal nucleoli'],
+      form_data['mitoses']
     ]],
                           dtype='int64')
 
     prediction = model.predict(arr_inputs)
     return render_template('index.html', pred_=prediction, form_data=form_data)
   else:
-    return render_template('index.html', pred_=None, form_data=form_data)
+    return render_template('index.html', form_data=form_data)
 
 
 if __name__ == "__main__":
