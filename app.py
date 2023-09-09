@@ -2,7 +2,7 @@ import joblib
 import numpy as np
 from flask import Flask, render_template, request
 
-model = joblib.load("models/model.pkl")
+model = joblib.load("artifacts/model.pkl")
 
 app = Flask(__name__)
 
