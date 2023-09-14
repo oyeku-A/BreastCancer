@@ -1,7 +1,7 @@
 import pandas as pd
 import joblib
 
-df = pd.read_csv('Data.csv')
+df = pd.read_csv('../artifact/Data.csv')
 df['Class'] = df['Class'].map(lambda x: 1 if x == 2 else 0)
 X = df.iloc[:, 1:-1].values
 y = df.iloc[:, -1].values
@@ -18,5 +18,5 @@ from xgboost import XGBClassifier
 bst = XGBClassifier()
 bst.fit(X_train, y_train)
 
-with open('model.pkl', 'wb') as file:
+with open('../artifact/model.pkl', 'wb') as file:
   joblib.dump(bst, file, compress=('gzip', 3))
