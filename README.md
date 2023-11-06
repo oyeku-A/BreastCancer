@@ -38,7 +38,7 @@ These features are commonly used in breast cancer diagnosis and classification t
 
 ## Getting Started
 
-<img src="interface.png" width="800" height="450">
+<img src="static/interface.png" width="800" height="450">
 
 To access the Breast Cancer Project web interface and start using the application:
 [Link](x)
