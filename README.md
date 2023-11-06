@@ -41,7 +41,9 @@ These features are commonly used in breast cancer diagnosis and classification t
 <img src="static/interface.png" width="800" height="450">
 
 To access the Breast Cancer Project web interface and start using the application:
-[Link](x)
+[Link](https://breastcancer.oyekuabdulquadr.repl.co/)
+
+**Note**: Loading link might take a while due to inactivity timeout
 
 ## Usage
 
